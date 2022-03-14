@@ -5,4 +5,4 @@ RewriteEngine on
 RewriteCond $1 !^(index\.php|images|videos|js|css|fonts|favicon.png|robots\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /crudigniter3/index.php/$1 [L,QSA]
+RewriteRule ^(.*)$ /crud/index.php/$1 [L,QSA]

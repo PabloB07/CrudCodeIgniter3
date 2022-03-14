@@ -7,6 +7,8 @@ class Edit extends CI_Controller {
 	{
 		parent::__construct();
 
+		//$this->load->library('session');
+		$this->load->helper('url');
 		$this->load->model("UsersData_model");
 	}
 
@@ -15,7 +17,6 @@ class Edit extends CI_Controller {
         $data = $this->UsersData_model->getUser($id);
 		$this->load->view('contacts/edit', $data);
 	}
-
 	public function update($id){
 		$full_name = $this->input->post("full_name");
 		$email = $this->input->post("email");
@@ -41,13 +42,13 @@ class Edit extends CI_Controller {
         else
         {
 			$data = array(
-				"full_name"=> $full_name,
-				"email"=> $email,
-                "password"=> md5($password),
+				"full_name" => $full_name,
+				"email" => $email,
+                "password" => md5($password),
 			);
 			
 			$this->UsersData_model->update($data, $id);
-			$this->session->set_flashdata('success', 'Los datos se actualizaron correctamente');
+			//$this->session->set_flashdata('success', 'Los datos se actualizaron correctamente');
 			redirect(base_url()."users");
 		}
 	}

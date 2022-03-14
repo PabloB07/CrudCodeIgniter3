@@ -8,6 +8,8 @@ class Add extends CI_Controller
 	{
 		parent::__construct();
 
+		//$this->load->library('session');
+		$this->load->helper('url');
 		$this->load->model("UsersData_model");
 	}
 
@@ -15,7 +17,6 @@ class Add extends CI_Controller
 	{
 		$this->load->view('contacts/add');
 	}
-
 	public function save()
     {
 		$full_name = $this->input->post("full_name");
@@ -36,7 +37,7 @@ class Add extends CI_Controller
 			);
 			
 			$this->UsersData_model->save($data);
-			$this->session->set_flashdata('success', 'Se guardo los datos correctamente');
+			//$this->session->set_flashdata('success', 'Se guardo los datos correctamente');
 			redirect(base_url()."users");
 		}
 	}

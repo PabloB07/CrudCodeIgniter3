@@ -52,11 +52,11 @@
 
     <script>
         
-        <?php if($this->session->flashdata("success")): ?>
+        <?php if($this->session->flashdata("success") != null): ?>
 
             Swal.fire({
                 icon: 'success',
-                title: 'Exito!ß',
+                title: 'Exito!',
                 text: '<?php echo $this->session->flashdata("success"); ?>',
             });
         <?php endif; ?>

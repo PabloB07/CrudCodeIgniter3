@@ -8,6 +8,8 @@ class Main extends CI_Controller
 	{
 		parent::__construct();
 
+		//$this->load->library('session');
+		$this->load->helper('url');
 		$this->load->model("UsersData_model");
 	}
 
@@ -17,11 +19,10 @@ class Main extends CI_Controller
 
 		$this->load->view('contacts/main',$data);
 	}
-
 	public function delete($id)
     {
 		$this->UsersData_model->delete($id);
-		$this->session->set_flashdata('success', 'El usuario se eliminó correctamente');
+		//$this->session->set_flashdata('success', 'El usuario se eliminó correctamente');
 		redirect(base_url()."users");
 	}
 }
